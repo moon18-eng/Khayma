@@ -23,12 +23,10 @@ await pool.query(`
 
   await pool.query(`
       CREATE TABLE IF NOT EXIST dishes (
+        id SERIAL PRIMARY KEY,
         dish_name VARCHAR (255) UNIQUE NOT NULL,
         dish_price INT,
         dish _discription VARCHAR,
-        
-
-       
       );
     `);
 
