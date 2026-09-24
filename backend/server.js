@@ -22,17 +22,17 @@ try {
         dish _discription VARCHAR,
         is_available BOOLEAN DEFAULT true
       );
-    `); //hide dish on false
+    `); //hide dish if false
 
   await pool.query(`
       CREATE TABLE IF NOT EXIST orders (
         id SERIAL PRIMARY KEY,
+        ordered_at TIMESTAMP DEFAULT NOW()
         guest_name VARCHAR (255),
         guest_phone INT,
         guest_adress VARCHAR (255),
+        Total_price_del INT NOT NULL,
         status VARCHAR(255) DEFAULT 'Pending,
-        Total_price INT,
-        ordered_at TIMESTAMP DEFAULT NOW()
       );
     `);
 
@@ -48,7 +48,6 @@ try {
     
     `)
 
-  
 
 
 console.log("Notes table created or already exists");
